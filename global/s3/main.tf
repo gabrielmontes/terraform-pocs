@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "poc" {
     }
 }
 
-resource "aws_s3_bucket_versioning" "versioning_example" {
+resource "aws_s3_bucket_versioning" "poc-versioning" {
   bucket = aws_s3_bucket.poc.id
   versioning_configuration {
     status = "Enabled"

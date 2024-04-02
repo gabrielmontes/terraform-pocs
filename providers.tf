@@ -5,7 +5,7 @@ terraform {
 
   backend "s3" {
     bucket = "gmontes-terraform-state"
-    key    = "terraform"
+    key    = "terraform/ec2-elb-sg"
     region = "us-west-1"
   }
 }
