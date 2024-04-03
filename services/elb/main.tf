@@ -12,9 +12,9 @@ resource "aws_elb" "poc" {
 
   health_check {
     healthy_threshold   = 2
-    unhealthy_threshold = 2
-    timeout             = 3
-    interval            = 30
+    unhealthy_threshold = 5
+    timeout             = 30
+    interval            = 90
     target              = "HTTP:${var.port}/"
   }
 }

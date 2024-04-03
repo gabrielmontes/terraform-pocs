@@ -3,9 +3,9 @@ resource "aws_security_group" "poc-sg" {
 
   # allow user ports:
   ingress {
-    from_port = var.from_port
-    to_port = var.to_port
-    protocol = var.protocol
+    from_port   = var.from_port
+    to_port     = var.to_port
+    protocol    = var.protocol
     cidr_blocks = [var.cidr_block]
   }
 

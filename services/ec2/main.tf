@@ -1,9 +1,9 @@
 resource "aws_instance" "ec2" {
-  ami = var.ami
-  instance_type = var.instance_type
+  ami                    = var.ami
+  instance_type          = var.instance_type
   vpc_security_group_ids = [var.security_group_id]
-  user_data = file("${var.user_data}")
-  iam_instance_profile = aws_iam_instance_profile.poc-ec2-ssm-profile.name 
+  user_data              = file("${var.user_data}")
+  iam_instance_profile   = aws_iam_instance_profile.poc-ec2-ssm-profile.name
 
   root_block_device {
     delete_on_termination = true

@@ -1,9 +1,9 @@
 resource "aws_launch_configuration" "poc" {
-  image_id        = var.ami
-  instance_type   = var.instance_type
-  security_groups = ["${var.security_group}"]
-  user_data       = file("${var.user_data}")
-  iam_instance_profile = aws_iam_instance_profile.poc-ec2-ssm-profile.name 
+  image_id             = var.ami
+  instance_type        = var.instance_type
+  security_groups      = ["${var.security_group}"]
+  user_data            = file("${var.user_data}")
+  iam_instance_profile = aws_iam_instance_profile.poc-ec2-ssm-profile.name
 
   lifecycle {
     create_before_destroy = true
@@ -11,10 +11,10 @@ resource "aws_launch_configuration" "poc" {
 }
 
 resource "aws_autoscaling_group" "poc" {
-  launch_configuration  = aws_launch_configuration.poc.id
-  availability_zones    = ["${var.az}"]
-  load_balancers = ["${var.lb}"]
-  health_check_type = "ELB"
+  launch_configuration = aws_launch_configuration.poc.id
+  availability_zones   = ["${var.az}"]
+  load_balancers       = ["${var.lb}"]
+  health_check_type    = "ELB"
 
   min_size = var.min_size
   max_size = var.max_size
